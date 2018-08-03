@@ -1,5 +1,13 @@
 version: '3'
 services:
+  dotnet:
+    build: ./docker/backend
+    ports:
+      - 5000:5000
+    volumes:
+      - ./docker/backend:/opt/app
+    links:
+      - mariadb
   mariadb:
     image: mariadb:latest
     ports:

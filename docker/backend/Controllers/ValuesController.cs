@@ -15,8 +15,8 @@ namespace backend.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Data>> Get()
         {
-            DataContext _context = new DataContext();
             //_context.Data.ToList();
+            DataContext _context = new DataContext();
             return _context.Data;
         }
 
@@ -31,19 +31,21 @@ namespace backend.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] Data data)
+        public ActionResult<Data> Post([FromBody] Data data)
         {
             var newData = new Data();
             newData = data;
             DataContext _context = new DataContext();
             _context.Data.Add(newData);
             _context.SaveChanges();
+            return _context.Data.Where(o => o.Name == newData.Name).First();
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
+            
         }
 
         // DELETE api/values/5

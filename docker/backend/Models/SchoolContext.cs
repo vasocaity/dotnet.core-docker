@@ -4,7 +4,8 @@ namespace dotnetdocker.Models
 {
     public class SchoolContext : DbContext
     {
-         public SchoolContext(): base()
+         public SchoolContext(DbContextOptions<SchoolContext> options)
+            : base(options)
         {
             
         }

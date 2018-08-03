@@ -7,4 +7,4 @@ EXPOSE 5000
 
 RUN ["dotnet", "restore"]
 
-CMD ["dotnet", "run", "--urls", "http://localhost:5000"]
+CMD ["dotnet", "run", "--urls", "http://0.0.0.0:5000"]
