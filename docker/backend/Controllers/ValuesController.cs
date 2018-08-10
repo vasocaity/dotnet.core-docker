@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using dotnetdocker.Models;
+using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
@@ -13,16 +13,16 @@ namespace backend.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<Data>> Get()
+        public ActionResult<IEnumerable<Data>> GetData()
         {
             //_context.Data.ToList();
             DataContext _context = new DataContext();
-            return _context.Data;
+            return Ok(_context.Data);
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<List<Data>> Get(int id)
+        public ActionResult<List<Data>> GetDataById(int id)
         {
             DataContext _context = new DataContext();
             var studentsWithSameName = _context.Data.Where(o => o.Id == id).ToList();

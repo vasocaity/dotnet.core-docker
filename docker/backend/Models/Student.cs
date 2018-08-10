@@ -1,13 +1,15 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 
-namespace dotnetdocker.Models
+namespace backend.Models
 {
-public class Student
-{
-    public int StudentID { get; set; }
-    public string StudentName { get; set; }
-    public DateTime? DateOfBirth { get; set; }
-        
-    public Grade Grade { get; set; }
-}
+    public partial class Student
+    {
+        public int StudentId { get; set; }
+        public string StudentName { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public int? CurrentGradeId { get; set; }
+
+        public Grade CurrentGrade { get; set; }
+    }
 }

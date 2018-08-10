@@ -1,13 +1,19 @@
+﻿using System;
 using System.Collections.Generic;
 
-namespace dotnetdocker.Models
+namespace backend.Models
 {
-public class Grade
-{
-    public int GradeId { get; set; }
-    public string GradeName { get; set; }
-    public string Section { get; set; }
-    
-    public ICollection<Student> Students { get; set; }
-}
+    public partial class Grade
+    {
+        public Grade()
+        {
+            Student = new HashSet<Student>();
+        }
+
+        public int GradeId { get; set; }
+        public string GradeName { get; set; }
+        public string GradeSection { get; set; }
+
+        public ICollection<Student> Student { get; set; }
+    }
 }
